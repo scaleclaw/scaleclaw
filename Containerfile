@@ -6,7 +6,8 @@ COPY build_files /
 FROM ghcr.io/ublue-os/bluefin:stable
 
 # SCALECLAW BRANDING
-COPY /system_files /
+COPY /system_files/bluefin/usr /usr
+COPY /system_files/bluefin/etc /etc
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
