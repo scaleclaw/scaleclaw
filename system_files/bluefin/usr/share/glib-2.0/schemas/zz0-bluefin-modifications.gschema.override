@@ -1,12 +1,12 @@
 #-------------- DESKTOP MODIFICATIONS --------------#
 
 [org.gnome.shell]
-favorite-apps = ['com.fyralabs.Readymade.desktop', 'org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.gnome.Nautilus.desktop', 'io.github.kolunmi.Bazaar.desktop', 'org.gnome.Software.desktop', 'code.desktop']
-enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'gsconnect@andyholmes.github.io', 'logomenu@aryan_k', 'tailscale@joaophi.github.com', 'search-light@icedman.github.com']
+favorite-apps = ['com.fyralabs.Readymade.desktop', 'org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'io.github.kolunmi.Bazaar.desktop', 'org.gnome.Software.desktop', 'code.desktop']
+enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'logomenu@aryan_k']
 
 [org.gnome.desktop.background]
-picture-uri='file:///usr/share/backgrounds/bluefin/12-bluefin.xml'
-picture-uri-dark='file:///usr/share/backgrounds/bluefin/12-bluefin.xml'
+picture-uri='file:///usr/share/backgrounds/scaleclaw/wallpaper.png'
+picture-uri-dark='file:///usr/share/backgrounds/scaleclaw/wallpaper.png'
 picture-options='zoom'
 primary-color='000000'
 secondary-color='FFFFFF'
@@ -46,7 +46,11 @@ unmaximize=['<Super>Down']
 numlock-state=true
 
 [org.gnome.shell.extensions.dash-to-dock]
+autohide=false
 dock-fixed=true
+intellihide=false
+click-action='minimize'
+multi-monitor=true
 force-straight-corner=false
 custom-theme-shrink=true
 disable-overview-on-startup=true
@@ -87,8 +91,10 @@ new-tab=false
 flatpak='off'
 
 [org.gnome.shell.extensions.Logo-menu]
-symbolic-icon=true
-menu-button-icon-image=30
+use-custom-icon=true
+custom-icon-path='/usr/share/scaleclaw/scaleclaw-button-64.png'
+symbolic-icon=false
+menu-button-icon-size=25
 menu-button-terminal='xdg-terminal-exec'
 menu-button-system-monitor='/usr/bin/missioncenter-helper'
 menu-button-extensions-app='com.mattjakeman.ExtensionManager.desktop'
@@ -98,6 +104,7 @@ show-lockscreen=false
 show-power-option=false
 show-gamemode=false
 hide-forcequit=true
+hide-icon-shadow=true
 show-distroshelf=true
 
 [org.gnome.shell.extensions.search-light]

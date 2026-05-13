@@ -23,7 +23,7 @@ declare -a IMAGES
 if [ "${LTS_MODE}" == "1" ] ; then
   IMAGES=(bluefin bluefin-dx bluefin-gdx)
 else
-  IMAGES=(bluefin bluefin-dx bluefin-nvidia-open bluefin-dx-nvidia-open)
+  IMAGES=(scaleclaw)
 fi
 IMAGE_NAME="$(gum choose --header="Select your image:" "${IMAGES[@]}" cancel)"
 [[ "$IMAGE_NAME" == "cancel" || "$IMAGE_NAME" == "" ]] && exit 0
@@ -36,8 +36,8 @@ if [ "${LTS_MODE}" == "1" ] ; then
     CHANNELS=(lts)
   fi
 else
-  CHANNELS=(stable stable-daily latest)
-  echo "The default selection is stable (weekly builds) and stable-daily (daily builds) are for enthusiasts, and latest is for testers"
+  CHANNELS=(latest)
+  echo "The default selection is latest for Scaleclaw, which takes from ghcr.io/ublue-os/bluefin:stable."
 fi
 
 channel_choice="$(gum choose "${CHANNELS[@]}" cancel)"

@@ -2,12 +2,12 @@
 Type=Application
 NoDisplay=false
 Terminal=false
-Exec=xdg-open https://docs.projectbluefin.io/
+Exec=xdg-open https://github.com/scaleclaw/scaleclaw/
 Icon=ublue-docs
 Name=Documentation
 Name[cs]=Dokumentace
-Comment=Bluefin documentation
-Comment[cs]=Bluefin dokumentace
-Comment[fr]=Documentation de Bluefin
-Keywords=Bluefin;Help;Docs;Instructions
+Comment=Scaleclaw documentation
+Comment[cs]=Scaleclaw dokumentace
+Comment[fr]=Documentation de Scaleclaw
+Keywords=Scaleclaw;Help;Docs;Instructions
 Categories=Utility;

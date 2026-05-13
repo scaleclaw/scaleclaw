@@ -16,33 +16,7 @@ devmode:
 [group('System')]
 toggle-devmode:
     #!/usr/bin/env bash
-    set -e
-    IMAGE_INFO_FILE="${IMAGE_INFO_FILE:-/usr/share/ublue-os/image-info.json}"
-    IMAGE_NAME="$(jq -rc '."image-name"' "${IMAGE_INFO_FILE}")"
-    IMAGE_REF="$(jq -rc '."image-ref"' "${IMAGE_INFO_FILE}" | sed "s/.*ghcr/ghcr/")"
-    CURRENT_IMAGE="${IMAGE_REF}:$(jq -rc '."image-tag"' "${IMAGE_INFO_FILE}")"
-    IMAGE_BASE_NAME="$(cut -f1 -d\- <<< "${IMAGE_NAME}")"
-    set +e
-
-    if grep -q -E -e "dx$" <<< "${IMAGE_NAME}" ; then
-        gum confirm "Would you like to disable developer mode?" || exit 0
-        echo "Rebasing to a non developer image"
-        NEW_IMAGE="$(sed "s/\-dx//" <<< $CURRENT_IMAGE)"
-        pkexec bootc switch --enforce-container-sigpolicy "${NEW_IMAGE}"
-        exit 0
-    fi
-
-    gum confirm "Would you like to enable developer mode?" || exit 0
-    echo "Rebasing to a developer image"
-    NEW_IMAGE="$(sed "s/${IMAGE_BASE_NAME}/${IMAGE_BASE_NAME}-dx/" <<< "${CURRENT_IMAGE}")"
-    pkexec bootc switch --enforce-container-sigpolicy "${NEW_IMAGE}"
-    if gum confirm "Do you want to also install the default development flatpaks?" ; then
-        ADD_DEVMODE=1 ujust install-system-flatpaks 0 1
-    fi
-    if gum confirm "Do you want to install extra monospace fonts?" ; then
-        brew bundle install --file=/usr/share/ublue-os/homebrew/fonts.Brewfile
-    fi
-    echo "Use ujust dx-group to add your user to the correct groups and complete the installation after rebooting into the development image"
+    echo "This feature is not currently supported by Scaleclaw. Please rebase to Bluefin's DX variant for support."
 
 # Configure docker,incus-admin,libvirt, container manager, serial permissions
 [group('System')]

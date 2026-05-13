@@ -1,4 +1,4 @@
-# 󱍢 Welcome to Bluefin
+# 󱍢 Welcome to Scaleclaw
 
 󱋩 `${MOTD_IMAGE_NAME}:${MOTD_IMAGE_TAG}`
 
@@ -11,6 +11,6 @@
 
 ${MOTD_TIP}
 
-- **󰊤** [Issues](https://issues.projectbluefin.io)
-- **󰊤** [Ask Bluefin](https://ask.projectbluefin.io)
-- **󰈙** [Documentation](https://docs.projectbluefin.io)
+- **󰊤** [Issues](https://github.com/scaleclaw/scaleclaw/issues)
+- **󰊤** [Discussion](https://www.reddit.com/r/scaleclaw/)
+- **󰈙** [Documentation](https://github.com/scaleclaw/scaleclaw)

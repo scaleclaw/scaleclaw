@@ -2,9 +2,10 @@
 # Some Gnome extensions don't ship gschema XML, so their settings also need to go in dconf
 
 [org/gnome/shell/extensions/Logo-menu]
-symbolic-icon=true
-menu-button-icon-image=30
-menu-button-icon-size=20
+use-custom-icon=true
+custom-icon-path='/usr/share/scaleclaw/scaleclaw-button-64.png'
+symbolic-icon=false
+menu-button-icon-size=25
 menu-button-terminal='xdg-terminal-exec'
 menu-button-system-monitor='/usr/bin/missioncenter-helper'
 menu-button-extensions-app='com.mattjakeman.ExtensionManager.desktop'
@@ -14,4 +15,5 @@ show-lockscreen=false
 show-power-option=false
 show-gamemode=false
 hide-forcequit=true
+hide-icon-shadow=true
 show-distroshelf=true
