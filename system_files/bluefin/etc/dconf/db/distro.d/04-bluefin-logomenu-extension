@@ -17,3 +17,10 @@ show-gamemode=false
 hide-forcequit=true
 hide-icon-shadow=true
 show-distroshelf=true
+
+[org/gnome/shell/extensions/dash-to-dock]
+autohide=false
+dock-fixed=true
+intellihide=false
+click-action='minimize'
+multi-monitor=true

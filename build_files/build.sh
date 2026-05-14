@@ -12,6 +12,21 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux 
 
+# remove some default extensions
+dnf5 remove -y \
+    gnome-shell-extension-apps-menu \
+    gnome-shell-extension-launch-new-instance \
+    gnome-shell-extension-places-menu \
+    gnome-shell-extension-window-list \
+    gnome-shell-extension-gsconnect
+
+# these extensions are manually copied into the image, need to be removed a different way
+rm -rf \
+    /usr/share/gnome-shell/extensions/caffeine@patapon.info \
+    /usr/share/gnome-shell/extensions/bazaar-integration@kolunmi.github.io \
+    /usr/share/gnome-shell/extensions/search-light@icedman.github.com
+
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
