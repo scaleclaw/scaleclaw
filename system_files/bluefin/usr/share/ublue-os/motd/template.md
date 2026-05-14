@@ -1,4 +1,4 @@
-# 󱍢 Welcome to Scaleclaw
+# Welcome to Scaleclaw
 
 󱋩 `${MOTD_IMAGE_NAME}:${MOTD_IMAGE_TAG}`
 

@@ -5,10 +5,6 @@ COPY build_files /
 # Base Image
 FROM ghcr.io/ublue-os/bluefin:stable
 
-# SCALECLAW BRANDING
-COPY /system_files/bluefin/usr /usr
-COPY /system_files/bluefin/etc /etc
-
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
 # FROM ghcr.io/ublue-os/bluefin-nvidia:stable
@@ -38,7 +34,29 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build.sh
-    
+
+# Ensure proper Scaleclaw naming by bringing in an edited 00-image-info.sh
+ARG IMAGE_NAME="scaleclaw"
+ARG IMAGE_VENDOR="scaleclaw"
+ARG UBLUE_IMAGE_TAG="latest"
+ARG BASE_IMAGE_NAME="bluefin"
+ARG FEDORA_MAJOR_VERSION="44"
+# We do not need the extra --mount=type arguments for this script
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    bash /ctx/00-image-info.sh
+
+# SCALECLAW BRANDING; run after build.sh to make sure branding is always on the top "layer"
+COPY /system_files/bluefin/usr /usr
+COPY /system_files/bluefin/etc /etc
+
+# Enforce/override zz0-bluefin-modifications.gschema and 04-bluefin-logomenu-extension
+RUN glib-compile-schemas /usr/share/glib-2.0/schemas
+RUN dconf update
+
+#re-generate initramfs to fix logos not being replaced on startup
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    bash /ctx/19-initramfs.sh
+
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint

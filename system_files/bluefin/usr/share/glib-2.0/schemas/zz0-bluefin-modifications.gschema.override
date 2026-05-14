@@ -1,8 +1,9 @@
 #-------------- DESKTOP MODIFICATIONS --------------#
 
 [org.gnome.shell]
-favorite-apps = ['com.fyralabs.Readymade.desktop', 'org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'io.github.kolunmi.Bazaar.desktop', 'org.gnome.Software.desktop', 'code.desktop']
+favorite-apps = ['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'io.github.kolunmi.Bazaar.desktop', 'org.gnome.Software.desktop', 'code.desktop']
 enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'logomenu@aryan_k']
+always-show-log-out=true
 
 [org.gnome.desktop.background]
 picture-uri='file:///usr/share/backgrounds/scaleclaw/wallpaper.png'
@@ -11,13 +12,20 @@ picture-options='zoom'
 primary-color='000000'
 secondary-color='FFFFFF'
 
+[org.gnome.desktop.screensaver]
+picture-uri='file:///usr/share/backgrounds/scaleclaw/wallpaper.png'
+
 [org.gnome.desktop.interface]
 enable-hot-corners=false
+color-scheme='prefer-dark'
+gtk-theme='Adwaita-dark'
+clock-format='12h'
+clock-show-date=true
 clock-show-weekday=true
 font-antialiasing="rgba"
 font-name="Adwaita Sans 12"
 document-font-name="Adwaita Sans 12"
-monospace-font-name="JetBrains Mono 16"
+monospace-font-name="JetBrains Mono 12"
 accent-color="slate"
 
 [org.gnome.desktop.search-providers]
@@ -45,25 +53,15 @@ unmaximize=['<Super>Down']
 [org.gnome.desktop.peripherals.keyboard]
 numlock-state=true
 
+[org.gnome.desktop.peripherals.mouse]
+accel-profile='flat'
+
 [org.gnome.shell.extensions.dash-to-dock]
 autohide=false
 dock-fixed=true
 intellihide=false
 click-action='minimize'
 multi-monitor=true
-force-straight-corner=false
-custom-theme-shrink=true
-disable-overview-on-startup=true
-transparency-mode='DYNAMIC'
-animation-time=0.15
-background-color='rgb(40,40,40)'
-background-opacity=0.8
-custom-background-color=true
-customize-alphas=true
-max-alpha=0.8
-min-alpha=0.5
-running-indicator-style='DOTS'
-apply-custom-theme=true
 
 [org.gnome.settings-daemon.plugins.power]
 power-button-action='interactive'
@@ -107,14 +105,11 @@ hide-forcequit=true
 hide-icon-shadow=true
 show-distroshelf=true
 
-[org.gnome.shell.extensions.search-light]
-shortcut-search=['<Super>space']
-scale-width=0.10
-scale-height=0.15
-border-thickness=1
-border-radius=1.65
-border-color=(0.23, 0.23, 0.23, 1.0)
-background-color=(0.0, 0.0, 0.0, 0.8)
+[org.gnome.Ptyxis.Shortcuts]
+copy-clipboard='<ctrl>c'
+paste-clipboard='<ctrl>v'
+select-all='<ctrl>a'
+search='<ctrl>f'
 
 [org.gnome.shell.extensions.blur-my-shell.dash-to-dock]
 blur=true
