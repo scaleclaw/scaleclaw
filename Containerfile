@@ -57,13 +57,6 @@ RUN dconf update
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     bash /ctx/19-initramfs.sh
 
-# attempt to brand installer; taken from https://github.com/projectbluefin/iso
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    bash /ctx/configure_iso_anaconda.sh
-
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint
