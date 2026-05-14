@@ -75,17 +75,17 @@ rpm --erase --nodeps --justdb fedora-logos
 
 # Anaconda Profile Detection
 
-# Bluefin
+# Scaleclaw
 tee /etc/anaconda/profile.d/bluefin.conf <<'EOF'
-# Anaconda configuration file for Bluefin
+# Anaconda configuration file for Scaleclaw
 
 [Profile]
 # Define the profile.
-profile_id = bluefin
+profile_id = scaleclaw
 
 [Profile Detection]
 # Match os-release values
-os_id = bluefin
+os_id = scaleclaw
 
 [Network]
 default_on_boot = FIRST_WIRED_WITH_LINK
@@ -117,16 +117,16 @@ use_geolocation = False
 EOF
 
 if [[ "${IMAGE_TAG}" =~ lts ]]; then
-    sed -i 's/^ID=.*/ID=bluefin/' /usr/lib/os-release
-    echo "VARIANT_ID=bluefin" >>/usr/lib/os-release
+    sed -i 's/^ID=.*/ID=scaleclaw/' /usr/lib/os-release
+    echo "VARIANT_ID=scaleclaw" >>/usr/lib/os-release
 fi
 
 # Configure
 . /etc/os-release
-echo "Bluefin release $VERSION_ID ($VERSION_CODENAME)" >/etc/system-release
+echo "Scaleclaw release $VERSION_ID ($VERSION_CODENAME)" >/etc/system-release
 sed -i 's/ANACONDA_PRODUCTVERSION=.*/ANACONDA_PRODUCTVERSION=""/' /usr/{,s}bin/liveinst || true
 sed -i 's|^Icon=.*|Icon=/usr/share/pixmaps/fedora-logo-icon.png|' /usr/share/applications/liveinst.desktop || true
-sed -i 's| Fedora| Bluefin|' /usr/share/anaconda/gnome/fedora-welcome || true
+sed -i 's| Fedora| Scaleclaw|' /usr/share/anaconda/gnome/fedora-welcome || true
 sed -i 's|Activities|in the dock|' /usr/share/anaconda/gnome/fedora-welcome || true
 
 # Get Artwork
@@ -200,4 +200,4 @@ echo -e "$ENROLLMENT_PASSWORD\n$ENROLLMENT_PASSWORD" | mokutil --import "$SECURE
 %end
 EOF
 
-sed -i -e "s/Fedora/Bluefin/g" -e "s/CentOS/Bluefin/g" /usr/share/anaconda/gnome/org.fedoraproject.welcome-screen.desktop
+sed -i -e "s/Fedora/Scaleclaw/g" -e "s/CentOS/Scaleclaw/g" /usr/share/anaconda/gnome/org.fedoraproject.welcome-screen.desktop
